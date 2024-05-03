@@ -18,7 +18,7 @@ def start():
             start()
     elif select==3:
         n=input("Enter A Name:")
-        m=input("Enter replacing name :")
+        m=input("Enter Replacing name :")
         if n in name:
             data=name.index(n)
             name[data]=m
