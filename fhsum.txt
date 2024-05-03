@@ -1,0 +1,5 @@
+Sum:35
+Substraction:25
+Multilplication:150
+Division:6
+---------------
