@@ -1,0 +1,56 @@
+##-------------------------Single Inh-------------------------------##
+class first:
+    def one(self):
+        print("Its A First Class")
+class second(first):
+    def two(self):
+        print("Its A Second Class")
+x=second()
+x.one()
+x.two()
+##----------------------------Multiline Inh-------------------------------##
+class first:
+    def one(self):
+        print("Its A First Class")
+class second(first):
+    def two(self):
+        print("Its A Second Class")
+class third(second):
+    def third(self):
+        print("Its A Third Class")
+x=third()
+x.one()
+x.two()
+x.third()
+##------------------------------Multiple Inh--------------------------------##
+class first:
+    def one(self):
+        print("Its A First Class")
+class second():
+    def two(self):
+        print("Its A Second Class")
+class third(first,second):
+    def third(self):
+        print("Its A Third Class")
+x=third()
+x.one()
+x.two()
+x.third()
+##------------------------------Hybrid Inh--------------------------------------##
+class first:
+    def one(self):
+        print("Its A First Class")
+class second(first):
+    def two(self):
+        print("Its A Second Class")
+class fourth:
+    def fourth(self):
+        print("Its A Fourth Class")
+class third(second,fourth):
+    def third(self):
+        print("Its A Third Class")
+x=third()
+x.one()
+x.two()
+x.third()
+x.fourth()
