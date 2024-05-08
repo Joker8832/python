@@ -1,0 +1,27 @@
+class bank:
+    def data(self,cn,an,la,ny,ei,tia):
+        self.cn=cn
+        self.an=an
+        self.la=la
+        self.ny=ny
+        self.ei=ei
+        self.tia=tia
+    def cust(self):
+       self.cn=input("Enter Customer Number  :")
+       self.an=int(input("Enter Account  Number   :"))
+       print("Customer Details Completed")
+    def banking(self):
+        self.la=float(input("Enter The Loan Amount:"))
+        print("The Rate Of Intrest Is 5%")
+        self.ny=int(input("Enter The Required year of pay loan:"))  
+    def intr(self):
+        self.tia=self.la*0.05
+        print("The Total Intrest Amount is    :",self.tia)        
+    def emi(self):
+        ei=(self.tia+self.la)/(self.ny*12)
+        print("The Emi Is",ei)
+x=bank()
+x.cust()
+x.banking()
+x.intr()
+x.emi()
