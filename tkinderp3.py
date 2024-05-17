@@ -1,0 +1,11 @@
+from tkinter import*
+window=Tk()
+window.title("Welcome to Apps")
+window.geometry("400x200")
+window.resizable(True,True)
+window.configure(background="#14A3C7")
+window.iconbitmap("favicon.ico")
+#window.attributes("-alpha",0.9)
+window.attributes("-topmost",True)
+b1=Entry(background="white")
+b1.place(x=180,y=20)
