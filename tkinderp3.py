@@ -39,13 +39,16 @@ def div():
     global math 
     math="div"
     b1.delete(0,END)
+def clear():
+    b1.delete(0,END)
+    b1.delete(END,0)
 
 def equal():
     if math=="div":
         new_value=b1.get()
         b1.delete(0,END)
         b1.insert(0,int(old_value)/int(new_value))
-    if math=="mut":
+    if math=="mult":
         new_value=b1.get()
         b1.delete(0,END)
         b1.insert(0,int(old_value)*int(new_value))
@@ -61,11 +64,12 @@ def equal():
 
 
 
+
     
     
 
-b1=Entry(background="white")
-b1.place(x=120,y=20)
+b1=Entry(background="white",width=31)
+b1.place(x=40,y=20)
 btn1=Button(text="1",background="white",fg="black",height=1,width=3,command=lambda:clicked(1))
 btn1.place(x=40,y=70)
 btn2=Button(text="2",background="white",fg="black",height=1,width=3,command=lambda:clicked(2))
@@ -97,4 +101,6 @@ btnsum=Button(text="/",background="white",fg="black",height=1,width=3, command=d
 btnsum.place(x=160,y=190)
 btnsum=Button(text="=",background="white",fg="black",height=1,width=9, command=equal)
 btnsum.place(x=80,y=190)
+btnsum=Button(text="Clear",background="white",fg="black",height=9,width=3, command=clear)
+btnsum.place(x=200,y=70)
 window.mainloop()
