@@ -9,10 +9,14 @@ def save():
     address=ent2.get()
     phone=ent3.get()
     if name=="" or address=="" or phone=="":
-        message.askyesnocancel("Inser Data","Please fill all textboxes")
+        message.askyesnocancel("Inser Data","Please fill all text boxes")
     cur.execute("INSERT INTO student VALUE('%s','%s','%s');"%(name,address,phone))
     conn.commit()
     message.showinfo("Saved Data","Data Saved Success")
+    cur.close
+    ent1.delete(0,END)
+    ent2.delete(0,END)
+    ent3.delete(0,END)
 def delete():
     name=ent1.get()
     if name=="":
@@ -20,29 +24,48 @@ def delete():
     cur.execute("DELETE FROM student WHERE NAME='%s'"%name)
     conn.commit()
     message.showinfo("Deleted","Deleted Succesfully")
+    ent1.delete(0,END)
+    ent2.delete(0,END)
+    ent3.delete(0,END)
 def search():
     name=ent1.get()
     if name=="":
         message.showerror("Error","Name Box Not Filled")
-    cur.execute("SELECT *FROM student WHERE NAME='%s'"%name)
+    cur.execute("SELECT *FROM student WHERE NAME='%s'"%name)         
     result=cur.fetchall()
-    for a in result:
-        ent1.delete(0,END)
-        ent1.insert(0,a[0])
-        ent2.insert(0,a[1])
-        ent3.insert(0,a[2])
+    if result:
+        for a in result:
+            ent1.delete(0,END)
+            ent1.insert(0,a[0])
+            ent2.insert(0,a[1])
+            ent3.insert(0,a[2])
+    else:
+        message.showinfo("Not Found","There is no person with this name pls add details and click save button")
     cur.close()
+    ent1.delete(0,END)
+    ent2.delete(0,END)
+    ent3.delete(0,END)
+        
 def edit():
     name=ent1.get()
     if name=="":
         message.showerror("Error","Name Box Is Empty")
+    cur.execute("SELECT *FROM student WHERE NAME='%s'"%name)         
+    result=cur.fetchall()
+    if result:
+        for a in result:
+            address=ent2.get()
+            ph=ent3.get()
+            conn.commit()
+            cur.execute("update student set address='%s',number='%s' where name='%s'"%(address,ph,name))
+            conn.commit()
+            message.showinfo("Enter","Edited Succesfully")
     else:
-        message.showinfo("Enter","Edited Succesfully")
-        address=ent2.get()
-        ph=ent3.get()
-        conn.commit()
-        cur.execute("update student set address='%s',phone='%s' where name='%s'"%(address,ph,name))
-        conn.commit()
+        message.showinfo("Not Found","There is no person with this name pls add details and click save button")
+        cur.close()
+    ent1.delete(0,END)
+    ent2.delete(0,END)
+    ent3.delete(0,END)
 window=Tk()
 
 
