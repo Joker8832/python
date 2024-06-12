@@ -1,0 +1,26 @@
+import datetime as dt
+
+a=int(input("The First DATE Day:"))
+b=int(input("The First DATE Month :"))
+c=int(input("The First DATE Year:"))
+d=int(input("The Second DATE Day:"))
+e=int(input("The Second DATE Month :"))
+f=int(input("The Second DATE Year:"))
+
+x=dt.datetime(c,b,a)
+y=dt.datetime(f,e,d)
+
+s=x.strftime("%Y")
+m=y.strftime("%Y")
+r=x.strftime("%m")
+q=y.strftime("%m")
+u=x.strftime("%d")
+v=y.strftime("%d")
+sm=int(s)-int(m)
+print("Year :",sm)
+rq=int(q)-int(r)
+abs(rq)
+print("Month :",rq)
+uv=int(v)-int(u)
+abs(uv)
+print("Day  :",uv)
